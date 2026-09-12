@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Student List</h2>
+
+        <a href="{% url 'student_add' %}" class="btn btn-success">
+            + Add Student
+        </a>
+    </div>
+    <a href="{% url 'export_excel' %}" class="btn btn-success">
+    Export Excel
+</a>
+    <a href="{% url 'export_excel' %}"
+class="btn btn-success">
+
+Export Excel
+
+</a>
+
+<button onclick="window.print()"
+class="btn btn-primary">
+
+Print
+
+</button>
+
+
+    <form method="GET" class="mb-3">
+
+    <div class="input-group">
+
+        <input
+            type="text"
+            name="search"
+            class="form-control"
+            placeholder="Search Student..."
+            value="{{ search }}">
+
+        <button class="btn btn-primary">
+            Search
+        </button>
+
+    </div>
+
+</form>
+<table id="studentTable"
+class="table table-bordered table-hover table-striped">
+
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Course</th>
+                <th>Semester</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <nav>
+
+<ul class="pagination">
+
+{% if students.has_previous %}
+
+<li class="page-item">
+<a class="page-link"
+href="?page={{ students.previous_page_number }}">
+Previous
+</a>
+</li>
+
+{% endif %}
+
+<li class="page-item active">
+<span class="page-link">
+{{ students.number }}
+</span>
+</li>
+
+{% if students.has_next %}
+
+<li class="page-item">
+<a class="page-link"
+href="?page={{ students.next_page_number }}">
+Next
+</a>
+</li>
+
+{% endif %}
+
+</ul>
+
+</nav>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.roll_no }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.semester }}</td>
+            <td>
+                <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6" class="text-center">
+                No Students Found
+            </td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+<script>
+
+$(document).ready(function(){
+
+    $('#studentTable').DataTable();
+
+});
+
+</script>
+
+<script>
+
+document.querySelectorAll(".delete-btn").forEach(function(button){
+
+    button.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const url = this.href;
+
+        Swal.fire({
+
+            title: "Are you sure?",
+
+            text: "You won't be able to recover this student!",
+
+            icon: "warning",
+
+            showCancelButton: true,
+
+            confirmButtonColor: "#d33",
+
+            cancelButtonColor: "#3085d6",
+
+            confirmButtonText: "Yes, Delete"
+
+        }).then((result)=>{
+
+            if(result.isConfirmed){
+
+                window.location.href = url;
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

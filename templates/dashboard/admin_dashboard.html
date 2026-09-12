@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex">
+
+    {% include "dashboard/sidebar.html" %}
+
+    <div class="flex-grow-1">
+
+        {% include "dashboard/navbar.html" %}
+
+        <div class="container-fluid p-4">
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <h5>Total Students</h5>
+                            <h2>{{ student_count }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h5>Total Teachers</h5>
+                            <h2>{{ teacher_count }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card bg-warning">
+                        <div class="card-body">
+                            <h5>Attendance</h5>
+                            <h2>{{ attendance }}%</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h5>Fee Collection</h5>
+                            <h2>₹{{ fee_collection }}</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'js/dashboard.js' %}"></script>
+
+{% endblock %}

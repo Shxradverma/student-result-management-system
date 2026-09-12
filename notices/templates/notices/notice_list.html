@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Notice Management</h3>
+
+        <a href="{% url 'notice_add' %}" class="btn btn-primary">
+            + Add Notice
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Publish Date</th>
+                <th>Status</th>
+                <th width="180">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for notice in notices %}
+
+        <tr>
+
+            <td>{{ forloop.counter }}</td>
+
+            <td>{{ notice.title }}</td>
+
+            <td>{{ notice.publish_date }}</td>
+
+            <td>
+                {% if notice.is_active %}
+                    <span class="badge bg-success">Active</span>
+                {% else %}
+                    <span class="badge bg-danger">Inactive</span>
+                {% endif %}
+            </td>
+
+            <td>
+
+                <a href="{% url 'notice_edit' notice.id %}"
+                   class="btn btn-warning btn-sm">
+                    Edit
+                </a>
+
+                <a href="{% url 'notice_delete' notice.id %}"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Delete this notice?')">
+                    Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="5" class="text-center">
+                No Notice Found
+            </td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

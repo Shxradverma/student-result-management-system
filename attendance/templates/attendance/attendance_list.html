@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Attendance Management</h3>
+
+        <a href="{% url 'attendance_add' %}" class="btn btn-primary">
+            + Add Attendance
+        </a>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Student</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Remarks</th>
+                <th width="180">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in attendance %}
+
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item.student }}</td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.status }}</td>
+                <td>{{ item.remarks }}</td>
+
+                <td>
+                    <a href="{% url 'attendance_edit' item.id %}"
+                       class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a href="{% url 'attendance_delete' item.id %}"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Are you sure you want to delete this attendance?');">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+
+            {% empty %}
+
+            <tr>
+                <td colspan="6" class="text-center text-danger">
+                    No Attendance Found
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,230 @@
+body{
+    background:#f8f9fa;
+}
+
+
+h1{
+    color:#0d6efd;
+}
+
+.card{
+    transition:0.4s;
+    border-radius:15px;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2)!important;
+}
+
+.card h4{
+    font-weight:bold;
+}
+
+.card p{
+    color:#666;
+}
+/* About Section */
+
+.about-section{
+
+    padding:80px 0;
+
+}
+
+.about-section img{
+
+    border-radius:15px;
+
+}
+
+.about-section p{
+
+    font-size:18px;
+
+    line-height:30px;
+
+}
+/* ========================= */
+/* Why Choose Us */
+/* ========================= */
+
+.why-card{
+    border:none;
+    border-radius:15px;
+    transition:.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+.why-card .display-4{
+    font-size:55px;
+}
+
+.why-card h4{
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.why-card p{
+    color:#666;
+}
+/* ========================= */
+/* Statistics Section */
+/* ========================= */
+
+.stats-section{
+
+    background:#0d6efd;
+
+}
+
+.stat-card{
+
+    color:white;
+
+    padding:20px;
+
+}
+
+.stat-card h1{
+
+    font-size:50px;
+
+    font-weight:bold;
+
+    margin-top:15px;
+
+}
+
+.stat-card h5{
+
+    margin-top:10px;
+
+    letter-spacing:1px;
+
+}
+
+.stat-card:hover{
+
+    transform:scale(1.05);
+
+    transition:.3s;
+
+}
+/* ========================= */
+/* Courses Section */
+/* ========================= */
+
+.course-card{
+    border:none;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.course-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+.course-card h3{
+    font-size:55px;
+}
+
+.course-card h4{
+    font-weight:bold;
+}
+
+.course-card p{
+    color:#666;
+}
+/* ========================= */
+/* Notice Section */
+/* ========================= */
+
+.notice-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    height:100%;
+
+}
+
+.notice-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+
+}
+
+.notice-card h5{
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+.notice-card p{
+
+    color:#666;
+
+}
+/* ========================= */
+/* Footer */
+/* ========================= */
+
+.footer{
+
+    margin-top:80px;
+
+}
+
+.footer h5{
+
+    margin-bottom:20px;
+
+    font-weight:bold;
+
+}
+
+.footer-link{
+
+    color:#ccc;
+
+    text-decoration:none;
+
+    display:block;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+.footer-link:hover{
+
+    color:#0d6efd;
+
+    padding-left:5px;
+
+}
+
+.footer p{
+
+    color:#ccc;
+
+}
